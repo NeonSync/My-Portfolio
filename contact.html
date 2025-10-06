@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- Navigation -->
   <nav>
     <div class="container nav-container">
       <h1 class="logo">Rohit Sharma<span>.</span></h1>
@@ -15,39 +16,66 @@
         <li><a href="about.html">About Me</a></li>
         <li><a href="skills.html">Skills</a></li>
         <li><a href="projects.html">Projects</a></li>
-         <li><a href="certificates.html">Certificates & Experiences</a> </li>
+        <li><a href="certificates.html">Certificates & Experiences</a></li>
       </ul>
     </div>
   </nav>
 
+  <!-- Contact Section -->
   <section class="section contact-page">
     <div class="container">
       <h2>Get In Touch</h2>
       <p>If you have any questions, project ideas, or want to collaborate, feel free to drop a message.</p>
 
       <div class="contact-container">
-        <form action="https://formspree.io/f/xkgqzyoo" method="POST" class="contact-form">
+        <form id="contact-form" action="https://formspree.io/f/xkgqzyoo" method="POST" class="contact-form">
           <input type="text" name="name" placeholder="Your Name" required />
           <input type="email" name="email" placeholder="Your Email" required />
           <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
           <button type="submit" class="btn">Send Message</button>
+          <p id="form-status" style="margin-top: 10px; color: #4CAF50;"></p>
         </form>
 
         <div class="contact-info">
           <p><strong>Email:</strong> rohit.sharma.rnks@gmail.com</p>
           <p><strong>GitHub:</strong> <a href="https://github.com/NeonSync" target="_blank">NeonSync</a></p>
           <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rohit-sharma-codes/" target="_blank">rohit-sharma-codes</a></p>
-          <p> <strong>Contacts:</strong> +91 7619719601</p>
+          <p><strong>Contacts:</strong> +91 7619719601</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>© 2025 Rohit Sharma. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- JS to Prevent Redirect -->
+  <script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent page reload
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      status.textContent = "Message sent successfully!";
+      form.reset();
+    } else {
+      status.textContent = "Oops! Something went wrong. Please try again.";
+      status.style.color = "#ff4d4d";
+    }
+  });
+  </script>
+
   <script src="js/script.js"></script>
 </body>
 </html>
