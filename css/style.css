@@ -16,6 +16,7 @@ body {
   margin: auto;
   padding: 20px;
 }
+
 .about-container {
   display: flex;
   align-items: center;
@@ -61,7 +62,8 @@ nav {
 }
 
 .logo span {
-  color: #a259ff; /* matte purple accent */
+  color: #a259ff;
+  /* matte purple accent */
 }
 
 .nav-links {
@@ -169,7 +171,8 @@ nav {
 }
 
 /* Skills & Projects */
-.skills-grid, .projects-grid {
+.skills-grid,
+.projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
@@ -208,6 +211,7 @@ footer {
   padding: 20px 0;
   font-size: 14px;
 }
+
 .contact-page {
   text-align: center;
 }
@@ -220,7 +224,8 @@ footer {
   margin-top: 40px;
 }
 
-.contact-form, .contact-info {
+.contact-form,
+.contact-info {
   flex: 1 1 45%;
   background-color: #1e1e1e;
   padding: 20px;
@@ -248,7 +253,7 @@ footer {
 }
 
 .contact-info p a {
-  color:#8e44ff;
+  color: #8e44ff;
   text-decoration: none;
 }
 
@@ -258,7 +263,8 @@ footer {
     align-items: center;
   }
 
-  .contact-form, .contact-info {
+  .contact-form,
+  .contact-info {
     width: 100%;
   }
 }
@@ -353,6 +359,10 @@ footer {
   }
 }
 
+
+/*Skill page */
+
+
 .skills-heading {
   color: #1f1036;
   font-size: 2.5rem;
@@ -425,3 +435,30 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+   /* Button Styling */
+    .button-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .social-btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #9333ea;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background-color: #7e22ce;
+      transform: translateY(-3px);
+    }
+
+    .social-btn i {
+      margin-right: 8px;
+    }
