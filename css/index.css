@@ -1,0 +1,221 @@
+/* -------------------------------
+   🌙 Portfolio Index Page Styles
+   Author: Rohit Sharma
+-------------------------------- */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* -------------------------------
+   🌐 Navbar
+-------------------------------- */
+nav {
+  background-color: #0d0d0d;
+  border-bottom: 1px solid #1e1e1e;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.logo span {
+  color: #a855f7;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #dddddd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 4px;
+}
+
+.nav-links a:hover {
+  color: #a855f7;
+  border-bottom: 2px solid #a855f7;
+}
+
+/* -------------------------------
+   🦋 Hero Section
+-------------------------------- */
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, #1a0b2e 0%, #0d0d0d 70%);
+  color: white;
+}
+
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.hero h2 span {
+  color: #a855f7;
+}
+
+.hero .subheading {
+  color: #bbbbbb;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.hero .btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #9333ea;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero .btn:hover {
+  background-color: #7e22ce;
+  transform: scale(1.05);
+}
+
+/* -------------------------------
+   🙋 About Section (Preview)
+-------------------------------- */
+#intro {
+  padding: 80px 20px;
+  background-color: #0f0f0f;
+}
+
+.intro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.profile-photo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 3px solid #a855f7;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.05);
+}
+
+.intro-text {
+  max-width: 550px;
+}
+
+.intro-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #a855f7;
+}
+
+.intro-text p {
+  color: #ccc;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #9333ea;
+  color: #9333ea;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.btn-outline:hover {
+  background-color: #9333ea;
+  color: white;
+}
+
+/* -------------------------------
+   🔳 Footer
+-------------------------------- */
+footer {
+  background-color: #111;
+  color: #888;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  border-top: 1px solid #1f1f1f;
+}
+
+/* -------------------------------
+   📱 Responsive Design
+-------------------------------- */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero .subheading {
+    font-size: 1rem;
+  }
+
+  .profile-photo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .intro-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-text h3 {
+    font-size: 1.5rem;
+  }
+}

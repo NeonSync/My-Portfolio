@@ -1,87 +1,108 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  background-color: #0e0e0e;
-  color: #e0e0e0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  line-height: 1.6;
 }
 
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-}
-
-.about-container {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.profile-photo {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #a259ff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-.about-text {
-  flex: 1;
-  min-width: 250px;
-}
-
-
-/* Navigation */
+/* -------------------------------
+   🌐 Navbar (Same Theme)
+-------------------------------- */
 nav {
-  background-color: #111;
-  padding: 15px 0;
+  background-color: #0d0d0d;
+  border-bottom: 1px solid #1e1e1e;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid #333;
+  z-index: 100;
 }
 
 .nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo {
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: 700;
   color: #fff;
 }
 
 .logo span {
-  color: #a259ff;
-  /* matte purple accent */
+  color: #a855f7;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 25px;
+  list-style: none;
 }
 
 .nav-links a {
-  color: #ccc;
+  color: #cccccc;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
+  transition: 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #a259ff;
+  color: #a855f7;
+  border-bottom: 2px solid #a855f7;
 }
+
+
+
+/* -------------------------------
+   🦋 Hero Section
+-------------------------------- */
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, #1a0b2e 0%, #0d0d0d 70%);
+  color: white;
+}
+
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.hero h2 span {
+  color: #a855f7;
+}
+
+.hero .subheading {
+  color: #bbbbbb;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.hero .btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #9333ea;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero .btn:hover {
+  background-color: #7e22ce;
+  transform: scale(1.05);
+}
+
 
 /* Hero Section */
 .hero {
@@ -462,3 +483,16 @@ footer {
     .social-btn i {
       margin-right: 8px;
     }
+
+    
+@media (max-width: 768px) {
+      .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }

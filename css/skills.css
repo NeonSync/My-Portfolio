@@ -1,0 +1,234 @@
+/* skills.css — Styles only for the Skills page (purple/black theme) */
+
+/* RESET FOR THIS MODULE (safe to include) */
+nav {
+  background-color: #0d0d0d;
+  border-bottom: 1px solid #1e1e1e;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.logo span {
+  color: #a855f7;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #dddddd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 4px;
+}
+
+.nav-links a:hover {
+  color: #a855f7;
+  border-bottom: 2px solid #a855f7;
+}
+
+/* -------------------------------
+   🦋 Hero Section
+-------------------------------- */
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, #1a0b2e 0%, #0d0d0d 70%);
+  color: white;
+}
+
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.hero h2 span {
+  color: #a855f7;
+}
+
+.hero .subheading {
+  color: #bbbbbb;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.hero .btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #9333ea;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero .btn:hover {
+  background-color: #7e22ce;
+  transform: scale(1.05);
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Page wrapper (full-width by default) */
+.skills-page {
+  width: 100%;
+  padding: 60px 20px;
+  background: transparent;
+  color: #fff;
+  text-align: center;
+}
+
+/* Headings */
+.skills-heading {
+  color: #1f1036;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.skills-sub {
+  color: #bbbbbb;
+  margin-bottom: 40px;
+  font-size: 1rem;
+}
+
+/* Layout: vertical stack of categories */
+.skills-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  width: 100%;
+  padding: 0 12px; /* small horizontal padding for edge devices */
+}
+
+/* Category title */
+.skill-category h3 {
+  color: #e1dbe7;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Skills grid inside each category */
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 6px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Individual skill badge (pill-like) */
+.skills-list span {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: 10px 15px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* Hover / focus states */
+.skills-list span:hover,
+.skills-list span:focus {
+  background: #9333ea;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #9333ea88;
+  outline: none;
+}
+
+/* Smaller variant for long labels */
+.skills-list span.small {
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  min-height: 48px;
+}
+
+/* Fade animation helpers (if you use IntersectionObserver JS) */
+.fade-init {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button area (optional — used on About page previously, safe to keep) */
+.button-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.social-btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #9333ea;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: #7e22ce;
+  transform: translateY(-3px);
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 1024px) {
+  .skills-wrapper { gap: 48px; }
+}
+
+@media (max-width: 768px) {
+  .skills-list {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .skills-heading { font-size: 2rem; }
+  .skill-category h3 { font-size: 1.2rem; }
+}
+
+@media (max-width: 420px) {
+  .skills-list { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .skills-list span { min-height: 48px; font-size: 0.9rem; padding: 8px 10px; }
+  .skills-heading { font-size: 1.6rem; }
+}
+
+/* Accessibility: visible focus */
+.skills-list span:focus {
+  box-shadow: 0 0 0 4px rgba(168,85,247,0.15);
+}
