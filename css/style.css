@@ -182,7 +182,7 @@ nav {
 
 /* Sections */
 .section {
-  padding: 60px 20px;
+  padding: 50px 15%;
 }
 
 .section h2 {
@@ -197,11 +197,14 @@ nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
+  max-width: 1200px;
+  padding: 20px;
+  margin: auto;
 }
 
 .skills-grid span {
   background-color: #1a1a1a;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
   text-align: center;
   color: #ccc;
@@ -224,13 +227,14 @@ nav {
   transform: translateY(-5px);
 }
 
-/* Footer */
+
 footer {
   background-color: #111;
   color: #888;
   text-align: center;
   padding: 20px 0;
-  font-size: 14px;
+  font-size: 0.9rem;
+  border-top: 1px solid #1f1f1f;
 }
 
 .contact-page {
@@ -241,8 +245,10 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 40px;
+  padding: 50px;
+  gap: 70px;
   margin-top: 40px;
+  border-radius: 10px;
 }
 
 .contact-form,
@@ -250,17 +256,18 @@ footer {
   flex: 1 1 45%;
   background-color: #1e1e1e;
   padding: 20px;
+  border-radius: 10px;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   margin: 10px 0;
   border: none;
   background-color: #2c2c2c;
   color: white;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .contact-form button {
