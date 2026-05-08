@@ -4,212 +4,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certificates & Experiences | Rohit Sharma</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    body {
-      background-color: #0d0d0d;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: #a855f7;
-      margin-bottom: 40px;
-      border-bottom: 2px solid #333;
-      display: inline-block;
-      padding-bottom: 10px;
-    }
-
-    /* Grid Styles */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    /* Card Styles */
-    .card {
-      background: #1a1a1a;
-      border: 1px solid #9333ea;
-      border-radius: 12px;
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px #9333ea77;
-    }
-
-    .card-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-
-    .card-subtitle {
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-bottom: 6px;
-    }
-
-    .card-date {
-      font-size: 0.8rem;
-      color: #999;
-      margin-bottom: 12px;
-    }
-
-    .card-description {
-      font-size: 0.9rem;
-      color: #bbb;
-      line-height: 1.4;
-    }
-
-    .view-button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 16px;
-      background-color: #9333ea;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      transition: background 0.3s ease;
-    }
-
-    .view-button:hover {
-      background-color: #7e22ce;
-    }
-
-    /* Back Button */
-    .back-button {
-      display: block;
-      width: fit-content;
-      margin: 50px auto 0;
-      padding: 10px 20px;
-      background-color: #9333ea;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: background 0.3s ease;
-    }
-
-    .back-button:hover {
-      background-color: #7e22ce;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-      color: #aaa;
-      font-size: 0.9rem;
-      margin-top: 60px;
-    }
-  </style>
+  <title>Certificates | Rohit Sharma</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/certificates.css" />
 </head>
 
 <body>
-  <div class="container">
-    <!-- Certificates Section -->
-    <h1>My Certificates</h1>
-    <div class="grid">
-      <div class="card">
-        <div class="card-title">Accenture Development</div>
-        <div class="card-subtitle">Forage</div>
-        <div class="card-date">Issued: April 2025</div>
-        <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ovyvuqqNRQKBjNxbj/3xnZEj9kfpoQKW885_ovyvuqqNRQKBjNxbj_6qR2GjddxRkToWraJ_1743615956907_completion_certificate.pdf"
-          target="_blank" class="view-button">View Certificate</a>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <h1 class="logo">Rohit Sharma<span>.</span></h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="Experience.html">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="menu-toggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Certificates Section -->
+  <section class="section certificates-page">
+    <div class="container">
+      <div class="page-header">
+        <h2 class="gradient-text">My Certificates</h2>
+        <p class="page-subtitle">Recognitions and certifications from various platforms and institutions</p>
       </div>
 
-      <div class="card">
-        <div class="card-title">Cybersecurity Analyst Job </div>
-        <div class="card-subtitle">Forage</div>
-        <div class="card-date">Issued: May 2025</div>
-        <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_6qR2GjddxRkToWraJ_1743617831127_completion_certificate.pdf"
-          target="_blank" class="view-button">View Certificate</a>
-      </div>
+      <div class="certificates-grid">
+        <div class="card certificate-card">
+          <div class="certificate-info">
+            <div class="certificate-issuer">Accenture Development</div>
+            <h3 class="card-title">Forage</h3>
+            <div class="certificate-date">Issued: April 2025</div>
+          </div>
+          <div class="certificate-actions">
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ovyvuqqNRQKBjNxbj/3xnZEj9kfpoQKW885_ovyvuqqNRQKBjNxbj_6qR2GjddxRkToWraJ_1743615956907_completion_certificate.pdf"
+              target="_blank" class="btn">View Certificate</a>
+          </div>
+        </div>
 
-      <div class="card">
-        <div class="card-title"> Web Dev Internship</div>
-        <div class="card-subtitle">TechieHelp</div>
-        <div class="card-date">Issued: August 2025</div>
-        <a href="images/certificate-techi.jpg" target="_blank" class="view-button">View Certificate</a>
-      </div>
+        <div class="card certificate-card">
+          <div class="certificate-info">
+            <div class="certificate-issuer">Cybersecurity Analyst Job</div>
+            <h3 class="card-title">Forage</h3>
+            <div class="certificate-date">Issued: May 2025</div>
+          </div>
+          <div class="certificate-actions">
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_6qR2GjddxRkToWraJ_1743617831127_completion_certificate.pdf"
+              target="_blank" class="btn">View Certificate</a>
+          </div>
+        </div>
 
-      <div class="card">
-        <div class="card-title">Sunhack Hackathon</div>
-        <div class="card-subtitle">Sandip University</div>
-        <div class="card-date">Issued: August 2025</div>
-        <a href="https://drive.google.com/file/d/1YLwceMXQ8n8NvhmY_YnJXo6S9o9Q7pad/view" target="_blank"
-          class="view-button">View Certificate</a>
-      </div>
+        <div class="card certificate-card">
+          <div class="certificate-info">
+            <div class="certificate-issuer">Web Dev Internship</div>
+            <h3 class="card-title">TechieHelp</h3>
+            <div class="certificate-date">Issued: August 2025</div>
+          </div>
+          <div class="certificate-actions">
+            <a href="images/certificate-techi.jpg" target="_blank" class="btn">View Certificate</a>
+          </div>
+        </div>
 
+        <div class="card certificate-card">
+          <div class="certificate-info">
+            <div class="certificate-issuer">Sunhack Hackathon</div>
+            <h3 class="card-title">Sandip University</h3>
+            <div class="certificate-date">Issued: August 2025</div>
+          </div>
+          <div class="certificate-actions">
+            <a href="https://drive.google.com/file/d/1YLwceMXQ8n8NvhmY_YnJXo6S9o9Q7pad/view" target="_blank"
+              class="btn">View Certificate</a>
+          </div>
+        </div>
 
-      <div class="card">
-        <div class="card-title">RAG based agent</div>
-        <div class="card-subtitle">Microsoft</div>
-        <div class="card-date">Issued: November 2025</div>
-        <a href="https://drive.google.com/file/d/1nb-q6XeJjTVIq5d8BYy_t7GlnYyMskd8/view?usp=sharing" target="_blank"
-          class="view-button">View Certificate</a>
-      </div>
+        <div class="card certificate-card">
+          <div class="certificate-info">
+            <div class="certificate-issuer">RAG based agent</div>
+            <h3 class="card-title">Microsoft</h3>
+            <div class="certificate-date">Issued: November 2025</div>
+          </div>
+          <div class="certificate-actions">
+            <a href="https://drive.google.com/file/d/1nb-q6XeJjTVIq5d8BYy_t7GlnYyMskd8/view?usp=sharing" target="_blank"
+              class="btn">View Certificate</a>
+          </div>
+        </div>
 
-      <div class="card">
-        <div class="card-title">Completion of C</div>
-        <div class="card-subtitle">Infosys</div>
-        <div class="card-date">Issued: November 2025</div>
-        <a href="https://drive.google.com/file/d/1cdhrJd0VSXqmWxyM5NU-ai2L5Tsw-uOY/view?usp=sharing" target="_blank"
-          class="view-button">View Certificate</a>
-      </div>
+        <div class="card certificate-card">
+          <div class="certificate-info">
+            <div class="certificate-issuer">Completion of C</div>
+            <h3 class="card-title">Infosys</h3>
+            <div class="certificate-date">Issued: November 2025</div>
+          </div>
+          <div class="certificate-actions">
+            <a href="https://drive.google.com/file/d/1cdhrJd0VSXqmWxyM5NU-ai2L5Tsw-uOY/view?usp=sharing" target="_blank"
+              class="btn">View Certificate</a>
+          </div>
+        </div>
 
-      <div class="card">
-        <div class="card-title">Completion of Front-End </div>
-        <div class="card-subtitle">JIET</div>
-        <div class="card-date">Issued: June 2025</div>
-        <a href="https://drive.google.com/file/d/1MkMq8n2t-dIXMKp2TDcKmeMa7s19cc7d/view?usp=sharing" target="_blank"
-          class="view-button">View Certificate</a>
-      </div>
+        <div class="card certificate-card">
+          <div class="certificate-info">
+            <div class="certificate-issuer">Completion of Front-End</div>
+            <h3 class="card-title">JIET</h3>
+            <div class="certificate-date">Issued: June 2025</div>
+          </div>
+          <div class="certificate-actions">
+            <a href="https://drive.google.com/file/d/1MkMq8n2t-dIXMKp2TDcKmeMa7s19cc7d/view?usp=sharing" target="_blank"
+              class="btn">View Certificate</a>
+          </div>
+        </div>
 
-      <div class="card">
-        <div class="card-title">Generative AI</div>
-        <div class="card-subtitle">Google Clouds</div>
-        <div class="card-date">Issued: June 2025</div>
-        <a href="https://drive.google.com/file/d/1MkMq8n2t-dIXMKp2TDcKmeMa7s19cc7d/view?usp=sharing" target="_blank"
-          class="view-button">View Certificate</a>
-      </div>
+        <div class="card certificate-card">
+          <div class="certificate-info">
+            <div class="certificate-issuer">Generative AI</div>
+            <h3 class="card-title">Google Clouds</h3>
+            <div class="certificate-date">Issued: June 2025</div>
+          </div>
+          <div class="certificate-actions">
+            <a href="https://drive.google.com/file/d/1MkMq8n2t-dIXMKp2TDcKmeMa7s19cc7d/view?usp=sharing" target="_blank"
+              class="btn">View Certificate</a>
+          </div>
+        </div>
 
-      <div class="card">
-        <div class="card-title">Capture the Flags</div>
-        <div class="card-subtitle">IIT Jodhpur</div>
-        <div class="card-date">Issued: Jan 2026</div>
-        <a href="https://drive.google.com/file/d/1x6mK_fMqAB1gWt7Z8kgCSYIWoH-WKyth/view?usp=sharing" target="_blank"
-          class="view-button">View Certificate</a>
+        <div class="card certificate-card">
+          <div class="certificate-info">
+            <div class="certificate-issuer">Capture the Flags</div>
+            <h3 class="card-title">IIT Jodhpur</h3>
+            <div class="certificate-date">Issued: Jan 2026</div>
+          </div>
+          <div class="certificate-actions">
+            <a href="https://drive.google.com/file/d/1x6mK_fMqAB1gWt7Z8kgCSYIWoH-WKyth/view?usp=sharing" target="_blank"
+              class="btn">View Certificate</a>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-
-    <!-- Back Button -->
-    <a href="index.html" class="back-button">← Back to Home</a>
-  </div>
-
+  <!-- Footer -->
   <footer>
-    © 2025 Rohit Sharma. All rights reserved.
+    <div class="container">
+      <p>© <span class="current-year">2025</span> Rohit Sharma. All rights reserved.</p>
+    </div>
   </footer>
-</body>
 
-<script src="/js/script.js"> </script>
+  <script src="js/main.js"></script>
+</body>
 
 </html>

@@ -1,0 +1,47 @@
+/* ========================================
+   📜 CERTIFICATES PAGE STYLES
+   ======================================== */
+
+.certificates-page {
+  padding-top: var(--spacing-2xl);
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.certificate-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.certificate-info {
+  margin-bottom: var(--spacing-md);
+}
+
+.certificate-issuer {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.certificate-date {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.certificate-actions {
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+}

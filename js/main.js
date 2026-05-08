@@ -3,36 +3,33 @@
 // ========================================
 
 // ========================================
-// NAVIGATION SCROLL EFFECT
+// NAVIGATION SCROLL EFFECT & LOGIC
 // ========================================
 const nav = document.querySelector('nav');
-let lastScroll = 0;
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 50) {
+    if (window.scrollY > 50) {
         nav.classList.add('scrolled');
     } else {
         nav.classList.remove('scrolled');
     }
-
-    lastScroll = currentScroll;
-});
+}, { passive: true });
 
 // ========================================
 // MOBILE MENU TOGGLE
 // ========================================
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-
-        // Animate hamburger to X
+if (menuToggle && navLinks) {
+    const toggleMenu = (state) => {
+        const isOpen = state !== undefined ? state : !navLinks.classList.contains('active');
+        navLinks.classList.toggle('active', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen);
+        menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+        
+        // Animate hamburger
         const spans = menuToggle.querySelectorAll('span');
-        if (navLinks.classList.contains('active')) {
+        if (isOpen) {
             spans[0].style.transform = 'rotate(45deg) translateY(8px)';
             spans[1].style.opacity = '0';
             spans[2].style.transform = 'rotate(-45deg) translateY(-8px)';
@@ -41,17 +38,23 @@ if (menuToggle) {
             spans[1].style.opacity = '1';
             spans[2].style.transform = 'none';
         }
+    };
+
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
     });
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-            navLinks.classList.remove('active');
-            const spans = menuToggle.querySelectorAll('span');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
+        if (navLinks.classList.contains('active') && !nav.contains(e.target)) {
+            toggleMenu(false);
         }
+    });
+
+    // Close menu on link click (important for mobile)
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
     });
 }
 
@@ -67,14 +70,14 @@ function typewriterEffect(element, texts, speed = 100, deleteSpeed = 50, pauseTi
 
     function type() {
         const currentText = texts[textIndex];
-
+        
         if (isDeleting) {
-            element.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
+            charIndex = Math.max(0, charIndex - 1);
         } else {
-            element.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
+            charIndex = Math.min(currentText.length, charIndex + 1);
         }
+
+        element.textContent = currentText.substring(0, charIndex);
 
         let typeSpeed = isDeleting ? deleteSpeed : speed;
 
@@ -117,25 +120,34 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('fade-in');
-            observer.unobserve(entry.target);
+            observer.unobserve(entry.target); // Only animate once
         }
     });
 }, observerOptions);
 
 // Observe all sections and cards
-document.querySelectorAll('.section, .card, .project-card, .skill-category').forEach(el => {
-    el.classList.add('fade-init');
-    observer.observe(el);
-});
+const animateElements = () => {
+    document.querySelectorAll('.section, .card, .project-card, .skill-category, .service-card').forEach(el => {
+        if (!el.classList.contains('fade-init')) {
+            el.classList.add('fade-init');
+            observer.observe(el);
+        }
+    });
+};
+
+animateElements();
 
 // ========================================
 // SMOOTH SCROLL FOR ANCHOR LINKS
 // ========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
         if (target) {
+            e.preventDefault();
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
@@ -145,51 +157,55 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ========================================
-// PARALLAX EFFECT FOR HERO SECTION
+// PARALLAX EFFECT (Optimized)
 // ========================================
 const hero = document.querySelector('.hero');
 if (hero) {
+    let ticking = false;
     window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallax = scrolled * 0.5;
-        hero.style.transform = `translateY(${parallax}px)`;
-    });
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrolled = window.scrollY;
+                if (scrolled < 1000) { // Only run while visible
+                    hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                    hero.style.opacity = 1 - (scrolled / 800);
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 }
 
 // ========================================
-// CURSOR GLOW EFFECT (Optional Premium Touch)
+// BACK TO TOP BUTTON
 // ========================================
-const createCursorGlow = () => {
-    const glow = document.createElement('div');
-    glow.className = 'cursor-glow';
-    glow.style.cssText = `
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.4), transparent);
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.15s ease;
-    display: none;
-  `;
-    document.body.appendChild(glow);
+const createBackToTop = () => {
+    const btn = document.createElement('button');
+    btn.innerHTML = '↑';
+    btn.className = 'back-to-top glass';
+    btn.setAttribute('aria-label', 'Back to top');
+    document.body.appendChild(btn);
 
-    document.addEventListener('mousemove', (e) => {
-        glow.style.display = 'block';
-        glow.style.left = e.clientX - 10 + 'px';
-        glow.style.top = e.clientY - 10 + 'px';
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            btn.classList.add('show');
+        } else {
+            btn.classList.remove('show');
+        }
+    }, { passive: true });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 };
 
-// Uncomment to enable cursor glow
-// createCursorGlow();
+createBackToTop();
 
 // ========================================
 // DYNAMIC YEAR IN FOOTER
 // ========================================
-const yearElements = document.querySelectorAll('.current-year');
-yearElements.forEach(el => {
+document.querySelectorAll('.current-year').forEach(el => {
     el.textContent = new Date().getFullYear();
 });
 
